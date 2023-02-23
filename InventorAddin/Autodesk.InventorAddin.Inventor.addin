@@ -1,0 +1,14 @@
+<Addin Type="Standard">
+  <!--Created for Autodesk Inventor Version 27.0-->
+  <ClassId>{b2e5a201-9d46-4e2d-8d8a-b16748936219}</ClassId>
+  <ClientId>{b2e5a201-9d46-4e2d-8d8a-b16748936219}</ClientId>
+  <DisplayName>Globalsoft_InventorAddin</DisplayName>
+  <Description>InventorAddin</Description>
+  <Assembly>InventorAddin.dll</Assembly>
+  <LoadOnStartUp>1</LoadOnStartUp>
+  <UserUnloadable>1</UserUnloadable>
+  <Hidden>0</Hidden>
+  <SupportedSoftwareVersionGreaterThan>26..</SupportedSoftwareVersionGreaterThan>
+  <DataVersion>1</DataVersion>
+  <UserInterfaceVersion>1</UserInterfaceVersion>
+</Addin>

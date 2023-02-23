@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DC284CE-6572-439D-ADA3-E703FF8498B6}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>InvAddIn</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="autodesk.inventor.interop, Version=27.0.0.0, Culture=neutral, PublicKeyToken=d84147f8b4276564, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Autodesk.Inventor.Interop\v4.0_27.0.0.0__d84147f8b4276564\autodesk.inventor.interop.dll</HintPath>
+    </Reference>
+    <Reference Include="CommunityToolkit.Mvvm, Version=8.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommunityToolkit.Mvvm.8.1.0\lib\netstandard2.0\CommunityToolkit.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\BorderTextBlock.xaml.cs">
+      <DependentUpon>BorderTextBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\PictureDispConverter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Converters\StringToBooleanConverter.cs" />
+    <Compile Include="Helpers\ViewFactorys\GearSummaryViewFactory.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardAddInServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Themes\GearSummaryResourceDictionary.xaml.cs">
+      <DependentUpon>GearSummaryResourceDictionary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddRevWindow.xaml.cs">
+      <DependentUpon>AddRevWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GearSummaryView.cs" />
+    <Compile Include="Views\GearSummaryWindow.xaml.cs">
+      <DependentUpon>GearSummaryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\TimingPage.xaml.cs">
+      <DependentUpon>TimingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\RepinionPage.xaml.cs">
+      <DependentUpon>RepinionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\WormGearPage.xaml.cs">
+      <DependentUpon>WormGearPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SprocketPage.xaml.cs">
+      <DependentUpon>SprocketPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\BevelGearPage.xaml.cs">
+      <DependentUpon>BevelGearPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\HelicalPage.xaml.cs">
+      <DependentUpon>HelicalPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SpurGearVIew.xaml.cs">
+      <DependentUpon>SpurGearVIew.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TitleColumnWindow.xaml.cs">
+      <DependentUpon>TitleColumnWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="InventorAddin.X.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Autodesk.InventorAddin.Inventor.addin" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventorAddin.Core\InventorAddin.Core.csproj">
+      <Project>{1386c72f-396a-439f-b2bc-9aa2cc663178}</Project>
+      <Name>InventorAddin.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Icon\a1.ico" />
+    <Content Include="Assets\Icon\AcadDWGAssoc.ico" />
+    <Content Include="Assets\Icon\coil_2996.ico" />
+    <Content Include="Assets\Icon\coil_4583.ico" />
+    <Content Include="Assets\Icon\Control.ico" />
+    <Content Include="Assets\Icon\Customization_32x32.png" />
+    <Content Include="Assets\Icon\Edit_32x32.png" />
+    <Content Include="Assets\Icon\Fatcow-Farm-Fresh-File-extension-dwg.ico" />
+    <Content Include="Assets\Icon\file-extension-dwg-icon.png" />
+    <Content Include="Assets\Icon\g1.ico" />
+    <Content Include="Assets\Icon\g2.ico" />
+    <Content Include="Assets\Icon\g3.ico" />
+    <Content Include="Assets\Icon\g4.ico" />
+    <Content Include="Assets\Icon\g5.ico" />
+    <Content Include="Assets\Icon\g6.ico" />
+    <Content Include="Assets\Icon\g7.ico" />
+    <Content Include="Assets\Icon\gear.png" />
+    <Content Include="Assets\Icon\Graphicloads-Colorful-Long-Shadow-Stamp.ico" />
+    <Content Include="Assets\Icon\Graphicloads-Flat-Finance-Global.ico" />
+    <Content Include="Assets\Icon\GS1.ico" />
+    <Content Include="Assets\Icon\GS2.ico" />
+    <Content Include="Assets\Icon\GS3.ico" />
+    <Content Include="Assets\Icon\GS4 %281%29.ico" />
+    <Content Include="Assets\Icon\GS4.ico" />
+    <Content Include="Assets\Icon\gsad96_ENY_icon.ico" />
+    <Content Include="Assets\Icon\gsad_back.png" />
+    <Content Include="Assets\Icon\GS_LOGO.png" />
+    <Content Include="Assets\Icon\GS_LOGO_TELL.png" />
+    <Content Include="Assets\Icon\GS_TELL.png" />
+    <Content Include="Assets\Icon\hnet.com-image.ico" />
+    <Content Include="Assets\Icon\icon1.ico" />
+    <Content Include="Assets\Icon\icon2.ico" />
+    <Content Include="Assets\Icon\icon3.ico" />
+    <Content Include="Assets\Icon\icon4.ico" />
+    <Content Include="Assets\Icon\icon5.ico" />
+    <Content Include="Assets\Icon\icon6.ico" />
+    <Content Include="Assets\Icon\icon7.ico" />
+    <Content Include="Assets\Icon\icon8.png" />
+    <Content Include="Assets\Icon\iconfinder_formspring_386629.ico" />
+    <Content Include="Assets\Icon\iconfinder_icon-ios7-gear_211751.ico" />
+    <Content Include="Assets\Icon\icons8-color-96.ico" />
+    <Content Include="Assets\Icon\icons8-color-96.png" />
+    <Content Include="Assets\Icon\icon_acr.ico" />
+    <Content Include="Assets\Icon\icon_acr1.ico" />
+    <Content Include="Assets\Icon\icon_acr1.png" />
+    <Content Include="Assets\Icon\icon_acr2.png" />
+    <Content Include="Assets\Icon\icon_acr3.png" />
+    <Content Include="Assets\Icon\icon_Acrobat2.ico" />
+    <Content Include="Assets\Icon\icon_Acrobat5.ico" />
+    <Content Include="Assets\Icon\icon_Acrobat5.png" />
+    <Content Include="Assets\Icon\icon_change.ico" />
+    <Content Include="Assets\Icon\icon_change.png" />
+    <Content Include="Assets\Icon\icon_change2.png" />
+    <Content Include="Assets\Icon\icon_change3.png" />
+    <Content Include="Assets\Icon\icon_change4.png" />
+    <Content Include="Assets\Icon\icon_change5.png" />
+    <Content Include="Assets\Icon\icon_chart.png" />
+    <Content Include="Assets\Icon\icon_chart1.ico" />
+    <Content Include="Assets\Icon\icon_coil1.png" />
+    <Content Include="Assets\Icon\icon_coil3.png" />
+    <Content Include="Assets\Icon\icon_DWG.ico" />
+    <Content Include="Assets\Icon\icon_DWG1.png" />
+    <Content Include="Assets\Icon\icon_DWG2.ico" />
+    <Content Include="Assets\Icon\icon_DWG2.png" />
+    <Content Include="Assets\Icon\icon_DWG3.png" />
+    <Content Include="Assets\Icon\icon_gear1.png" />
+    <Content Include="Assets\Icon\icon_gear12.png" />
+    <Content Include="Assets\Icon\icon_gear13.ico" />
+    <Content Include="Assets\Icon\icon_gear2.png" />
+    <Content Include="Assets\Icon\icon_gear3.png" />
+    <Content Include="Assets\Icon\icon_gear4.png" />
+    <Content Include="Assets\Icon\icon_gear5.png" />
+    <Content Include="Assets\Icon\icon_gear6.png" />
+    <Content Include="Assets\Icon\icon_gear7.png" />
+    <Content Include="Assets\Icon\icon_gear_g_1.png" />
+    <Content Include="Assets\Icon\icon_gear_g_2.png" />
+    <Content Include="Assets\Icon\icon_gear_g_3.png" />
+    <Content Include="Assets\Icon\icon_gear_g_4.png" />
+    <Content Include="Assets\Icon\icon_gear_g_5.png" />
+    <Content Include="Assets\Icon\icon_gear_i_1.ico" />
+    <Content Include="Assets\Icon\icon_gear_i_2.ico" />
+    <Content Include="Assets\Icon\icon_gear_i_3.ico" />
+    <Content Include="Assets\Icon\icon_gear_i_4.ico" />
+    <Content Include="Assets\Icon\icon_gear_w_1.png" />
+    <Content Include="Assets\Icon\icon_gear_w_2.png" />
+    <Content Include="Assets\Icon\icon_gear_w_3.png" />
+    <Content Include="Assets\Icon\icon_gear_w_4.png" />
+    <Content Include="Assets\Icon\icon_gear_w_5.png" />
+    <Content Include="Assets\Icon\icon_gear_w_6.png" />
+    <Content Include="Assets\Icon\icon_gear_w_7.png" />
+    <Content Include="Assets\Icon\icon_info.png" />
+    <Content Include="Assets\Icon\icon_key.png" />
+    <Content Include="Assets\Icon\icon_new_01.ico" />
+    <Content Include="Assets\Icon\icon_new_02.ico" />
+    <Content Include="Assets\Icon\icon_new_03.ico" />
+    <Content Include="Assets\Icon\icon_new_04.ico" />
+    <Content Include="Assets\Icon\icon_new_05.ico" />
+    <Content Include="Assets\Icon\icon_new_06.ico" />
+    <Content Include="Assets\Icon\icon_new_07.ico" />
+    <Content Include="Assets\Icon\icon_new_acrobat.ico" />
+    <Content Include="Assets\Icon\icon_new_change.ico" />
+    <Content Include="Assets\Icon\icon_new_chart.ico" />
+    <Content Include="Assets\Icon\icon_new_dwg.ico" />
+    <Content Include="Assets\Icon\icon_new_info.ico" />
+    <Content Include="Assets\Icon\icon_new_key.ico" />
+    <Content Include="Assets\Icon\icon_new_stamp.ico" />
+    <Content Include="Assets\Icon\icon_sp_01.ico" />
+    <Content Include="Assets\Icon\icon_sp_02.ico" />
+    <Content Include="Assets\Icon\icon_stamp.png" />
+    <Content Include="Assets\Icon\icon_stamp1.png" />
+    <Content Include="Assets\Icon\icon_stamp2.png" />
+    <Content Include="Assets\Icon\icon_stamp3.ico" />
+    <Content Include="Assets\Icon\icon_stamp3.png" />
+    <Content Include="Assets\Icon\icon_stamp4.png" />
+    <Content Include="Assets\Icon\icon_stamp5.png" />
+    <Content Include="Assets\Icon\Info_32x32.png" />
+    <Content Include="Assets\Icon\Issue_32x32.png" />
+    <Content Include="Assets\Icon\kisspng-cloud-computing-computer-icons-cloud-storage-icon-push-5b6e8522c34204.0964839815339696987998.png" />
+    <Content Include="Assets\Icon\PageSetup_32x32.png" />
+    <Content Include="Assets\Icon\pdf-icon.png" />
+    <Content Include="Assets\Icon\pngwave.png" />
+    <Content Include="Assets\Icon\properties-tab.png" />
+    <Content Include="Assets\Icon\Properties_32x32.png" />
+    <Content Include="Assets\Icon\Pulley.png" />
+    <Content Include="Assets\Icon\Rob-Sanders-Gear-Worm-gear.ico" />
+    <Content Include="Assets\Icon\TimeLineView_32x32.png" />
+    <Content Include="Assets\Icon\Treetog-File-Type-Pdf.ico" />
+    <Content Include="Assets\Icon\Untergunter-Leaf-Mimes-App-x-executable.ico" />
+    <Content Include="Assets\Icon\압축스프링_kh.ico" />
+    <Content Include="Assets\Icon\압축코일3.ico" />
+    <Content Include="Assets\Icon\인장코일2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\BorderTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\GearSummaryResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddRevWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GearSummaryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\TimingPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\RepinionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\WormGearPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\SprocketPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\BevelGearPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\HelicalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\SpurGearVIew.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TitleColumnWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>WHERE MT.EXE
+IF ERRORLEVEL 1 call "$(DevEnvDir)..\..\VC\Auxiliary\Build\vcvarsall.bat" amd64
+			mt.exe -manifest "$(ProjectDir)InventorAddin.X.manifest" -outputresource:"$(TargetPath)";#2
+			XCopy "$(TargetPath)" "%25AppData%25\Autodesk\ApplicationPlugins\$(TargetName)\" /Y /R
+			XCopy "$(ProjectDir)Autodesk.InventorAddin.Inventor.addin" "%25AppData%25\Autodesk\ApplicationPlugins\$(TargetName)\" /Y /R
+			XCopy "$(TargetDir)*.dll" "%25AppData%25\Autodesk\ApplicationPlugins\$(TargetName)\" /Y /R
+			XCopy "$(TargetDir)*.pdb" "%25AppData%25\Autodesk\ApplicationPlugins\$(TargetName)\" /Y /R</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\CommunityToolkit.Mvvm.8.1.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets" Condition="Exists('..\packages\CommunityToolkit.Mvvm.8.1.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\CommunityToolkit.Mvvm.8.1.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CommunityToolkit.Mvvm.8.1.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets'))" />
+  </Target>
+</Project>
