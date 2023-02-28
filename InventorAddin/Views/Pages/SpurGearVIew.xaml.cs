@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using InventorAddin.Core.ViewModels;
 
 namespace InvAddIn.Views.Pages
 {
@@ -24,6 +26,22 @@ namespace InvAddIn.Views.Pages
         public SpurGearPage()
         {
             InitializeComponent();
+        }
+        
+        private void NumberTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsDecimalNumber(sender, e.Text);
+        }
+
+        private bool IsDecimalNumber(object sender, string text)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            bool isNumeric = double.TryParse(text, out double result);
+            bool isDecimalSeparator = text == CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+            bool isValidDecimal = !(isDecimalSeparator && textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+
+            return isNumeric || (isDecimalSeparator && isValidDecimal);
         }
     }
 }

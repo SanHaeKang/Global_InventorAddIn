@@ -120,7 +120,15 @@ namespace InventorAddin
             titleColumnWindowButtonDefinition.OnExecute += delegate(NameValueMap context)
             {
                 TitleColumnWindow tw = new TitleColumnWindow(m_inventorApplication);
-                tw.Show();
+                try
+                {
+                    tw.ShowDialog();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    tw.Close();
+                }
             };
             // 기어 요목표
             spurGearWindowButtonDefinition.OnExecute += (context) => GearButtonClick(spurGearWindowButtonDefinition.InternalName);
@@ -221,7 +229,15 @@ namespace InventorAddin
             GearSummaryViewModel gearSummaryViewModel = factoryViewModel.CreateViewModel(m_inventorApplication);
 
             GearSummaryWindow gearSummaryWindow = new GearSummaryWindow(gearSummaryView, gearSummaryViewModel);
-            gearSummaryWindow.Show();
+            try
+            {
+                gearSummaryWindow.ShowDialog();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                gearSummaryWindow.Close();
+            }
         }
 
         private GearType GetGearTypeFromContext(string InternalName)

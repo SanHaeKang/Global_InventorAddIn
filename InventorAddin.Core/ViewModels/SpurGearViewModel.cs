@@ -10,36 +10,171 @@ namespace InventorAddin.Core.ViewModels
         private Inventor.Application m_inventorApplication;
         private Inventor.InteractionEvents interactionEvents;
 
-        private string _module;
+        private bool _isCustomEnabled;
 
-        public string Module
+        public bool IsCustomEnabled
         {
-            get => _module;
-            set => SetProperty(ref _module, value);
+            get => _isCustomEnabled;
+            set
+            {
+                SetProperty(ref _isCustomEnabled, value);
+                if(_isCustomEnabled )
+                {
+                    EnableAllTextBox();
+                }
+            }
+        }
+        private bool _isModuleTextEnabled;
+
+        public bool IsModuleTextEnabled
+        {
+            get => _isModuleTextEnabled;
+            set => SetProperty(ref _isModuleTextEnabled, value);
         }
 
-        private string _wholeDepth;
+        private bool _isPCDTextEnabled;
 
-        public string WholeDepth
+        public bool IsPCDTextEnabled
+        {
+            get => _isPCDTextEnabled;
+            set => SetProperty(ref _isPCDTextEnabled, value);
+        }
+        private bool _isNumOfTeethTextEnabled;
+
+        public bool IsNumOfTeethTextEnabled
+        {
+            get => _isNumOfTeethTextEnabled;
+            set => SetProperty(ref _isNumOfTeethTextEnabled, value);
+        }
+
+        private bool _isModuleEnabled;
+
+        public bool IsModuleEnabled
+        {
+            get => _isModuleEnabled;
+            set
+            {
+                SetProperty(ref _isModuleEnabled, value);
+                if (_isModuleEnabled)
+                {
+                    EnableAllTextBox();
+                    IsModuleTextEnabled = false;
+                }
+            }
+        }
+        private bool _isWholeDepthEnabled;
+
+        public bool IsWholeDepthEnabled
+        {
+            get => _isWholeDepthEnabled;
+            set => SetProperty(ref _isWholeDepthEnabled, value);
+            
+        }
+        private bool _isPCDEnabled;
+
+        public bool IsPCDEnabled
+        {
+            get => _isPCDEnabled;
+            set
+            {
+                SetProperty(ref _isPCDEnabled, value);
+                if (_isPCDEnabled)
+                {
+                    EnableAllTextBox();
+                    IsPCDTextEnabled = false;
+                }
+            }
+        }
+        private bool _isNumOfTeethEnabled;
+
+        public bool IsNumOfTeethEnabled
+        {
+            get => _isNumOfTeethEnabled;
+            set
+            {
+                SetProperty(ref _isNumOfTeethEnabled, value);
+                if (_isNumOfTeethEnabled)
+                {
+                    EnableAllTextBox();
+                    IsNumOfTeethTextEnabled = false;
+                }
+            }
+        }
+
+        private double _module;
+
+        public double Module
+        {
+            get => _module;
+            set
+            {
+                SetProperty(ref _module, value);
+
+                if (IsWholeDepthEnabled)
+                {
+                    WholeDepth = _module * 2.25;
+                }
+
+                if (IsPCDEnabled)
+                {
+                    PCD = _module * NumOfTeeth;
+                }
+                else if (IsNumOfTeethEnabled)
+                {
+                    NumOfTeeth = (int)(PCD / _module);
+                }
+            }
+            
+        }
+
+        private double _wholeDepth;
+
+        public double WholeDepth
         {
             get => _wholeDepth;
             set => SetProperty(ref _wholeDepth, value);
         }
 
-        private string _pcd;
+        private double _pcd;
 
-        public string PCD
+        public double PCD
         {
             get => _pcd;
-            set => SetProperty(ref _pcd, value);
+            set
+            {
+                SetProperty(ref _pcd, value);
+
+                if (IsModuleEnabled)
+                {
+                    Module = _pcd / NumOfTeeth;
+                }
+                else if (IsNumOfTeethEnabled)
+                {
+                    NumOfTeeth = (int)(_pcd / Module);
+                }
+            }
+            
         }
 
-        private string _numOfTeeth;
+        private int _numOfTeeth;
 
-        public string NumOfTeeth
+        public int NumOfTeeth
         {
             get => _numOfTeeth;
-            set => SetProperty(ref _numOfTeeth, value);
+            set
+            {
+                SetProperty(ref _numOfTeeth, value);
+
+                if (IsModuleEnabled)
+                {
+                    Module = PCD / _numOfTeeth;
+                }
+                else if (IsPCDEnabled)
+                {
+                    PCD = Module * _numOfTeeth;
+                }
+            }
+            
         }
 
         private string _unit;
@@ -49,16 +184,21 @@ namespace InventorAddin.Core.ViewModels
             set => SetProperty(ref _unit, value);
         }
 
+        void EnableAllTextBox()
+        {
+            IsNumOfTeethTextEnabled = true;
+            IsPCDTextEnabled = true;
+            IsModuleTextEnabled = true;
+        }
+
         public SpurGearViewModel(Inventor.Application _m_inventorApplication)
         {
             m_inventorApplication = _m_inventorApplication;
 
             Unit = UnitHelper.UnitToString(m_inventorApplication.ActiveDocument.UnitsOfMeasure.LengthUnits);
 
-            NumOfTeeth = string.Empty;
-            PCD = string.Empty;
-            WholeDepth = string.Empty;
-            Module = string.Empty;
+            IsWholeDepthEnabled = true;
+            IsCustomEnabled = true;
         }
 
         public override void SetSummary()
@@ -77,8 +217,8 @@ namespace InventorAddin.Core.ViewModels
                 var sheet = dDoc.ActiveSheet;
                 var sketchedSymbolDefinition = dDoc.SketchedSymbolDefinitions["스퍼기어 요목표"];
 
-                string[] PromptStrings = new string[4] {NumOfTeeth, PCD, WholeDepth, Module};
-                var sketchedSymbol = sheet.SketchedSymbols.Add(
+                string[] PromptStrings = new string[4] {NumOfTeeth.ToString(), PCD.ToString(), WholeDepth.ToString(), Module.ToString() };
+                sheet.SketchedSymbols.Add(
                     sketchedSymbolDefinition, 
                     m_inventorApplication.TransientGeometry.CreatePoint2d(modelposition.X, modelposition.Y),
                     0, 1, PromptStrings

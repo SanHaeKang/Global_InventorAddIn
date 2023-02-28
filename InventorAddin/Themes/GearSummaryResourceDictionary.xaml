@@ -5,6 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:InvAddIn.Themes">
 
+    <Style x:Key="MarginAndWideButton" TargetType="Button">
+        <Setter Property="Margin" Value="2.5,0"/>
+        <Setter Property="Width" Value="85"/>
+    </Style>
+
     <Style x:Key="CenteredTextBox" TargetType="TextBox">
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -16,7 +21,7 @@
 
     <Style x:Key="CenteredAndBoldAndBigTextBoxContent" TargetType="TextBox" BasedOn="{StaticResource CenteredTextBox}">
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontSize" Value="18"/>
     </Style>
 
     <Style x:Key="MaxTenCenteredAndBoldAndBigTextBoxContent" TargetType="TextBox" BasedOn="{StaticResource CenteredAndBoldAndBigTextBoxContent}">
@@ -25,7 +30,7 @@
 
     <Style x:Key="BoldAndBigTextBlock" TargetType="TextBlock">
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontSize" Value="18"/>
     </Style>
 
     <Style x:Key="BoldAndBigTextBlockTitle" TargetType="TextBlock">
