@@ -81,12 +81,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4AB67D29F0EA4833941E74E88E1D20FA"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_5475667BA49F4D70C037A85346675E55"
         "OwnerKey" = "8:_8BFE88B3A1AEC6D1460DB698B147893C"
         "MsmSig" = "8:_UNDEFINED"
@@ -191,6 +185,12 @@
         {
         "MsmKey" = "8:_C847A6D376D9554E86F7C03CC74813F2"
         "OwnerKey" = "8:_07A119930FB2454CB68522B2EF5E2908"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DABCB1F7028342AF98F4624255F48AAE"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -421,18 +421,18 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_34776404B41D4F1EA868D4AAAEBAF36F"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_F52639D1563943AF959CF0FC2199F655"
             {
-            "Name" = "8:기본 출력 from InventorAddin.Setup.Setting (Active)"
+            "Name" = "8:게시 항목 from InventorAddin.Setup.Setting (Active)"
             "Condition" = "8:"
-            "Object" = "8:_4AB67D29F0EA4833941E74E88E1D20FA"
-            "FileType" = "3:1"
+            "Object" = "8:_DABCB1F7028342AF98F4624255F48AAE"
+            "FileType" = "3:2"
             "InstallAction" = "3:2"
-            "Arguments" = "8:"
+            "Arguments" = "8:/Commit"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_6D667BB1_0224_45A9_A9F2_D8E1CE199BA4"
-            "InstallerClass" = "11:TRUE"
+            "Identifier" = "8:_A469D7E5_6C8B_475E_AB69_14275EBDDA5F"
+            "InstallerClass" = "11:FALSE"
             "CustomActionData" = "8:"
             }
         }
@@ -1142,7 +1142,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Globalsoft_InventorAddin"
         "ProductCode" = "8:{A6ECAABC-6E11-4074-B61D-743C71C6F89F}"
-        "PackageCode" = "8:{F64E0646-C4E3-4274-ACD0-8655F4294208}"
+        "PackageCode" = "8:{5BBC8E5E-2B3C-42D4-A178-EA7DE0F8C8A0}"
         "UpgradeCode" = "8:{1137B0F3-04C2-4FB7-9C35-8F7EFCCA318C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1632,9 +1632,9 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_4AB67D29F0EA4833941E74E88E1D20FA"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DABCB1F7028342AF98F4624255F48AAE"
             {
-            "SourcePath" = "8:..\\InventorAddin.Setup.Setting\\obj\\Release\\net6.0\\InventorAddin.Setup.Setting.dll"
+            "SourcePath" = "8:..\\InventorAddin.Setup.Setting\\obj\\Release\\net6.0\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_662B1AF13E31447D9C3D6303B82E4C05"
@@ -1653,7 +1653,7 @@
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
             "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
+            "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{A614957E-BE13-4E0E-9A9B-616CEBA8B2D6}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"

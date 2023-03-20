@@ -48,6 +48,8 @@ namespace InventorAddin
         private ButtonDefinition repinionWindowButtonDefinition;
         private ButtonDefinition wormGearWindowButtonDefinition;
         private ButtonDefinition sprocketWindowButtonDefinition;
+        private ButtonDefinition tensionCoilWindowButtonDefinition;
+        private ButtonDefinition compressionCoilWindowButtonDefinition;
 
         public StandardAddInServer()
         {
@@ -114,6 +116,16 @@ namespace InventorAddin
                     CommandTypesEnum.kNonShapeEditCmdType, AddInClientID, "DescriptionText_스프로킷", "ToolTipText_스프로킷",
                     PictureDispConverter.Convert(Resources.icon_new_04.ToBitmap()),
                     PictureDispConverter.Convert(Resources.icon_new_04.ToBitmap()));
+            tensionCoilWindowButtonDefinition =
+                m_inventorApplication.CommandManager.ControlDefinitions.AddButtonDefinition("인장코일", "인장코일",
+                    CommandTypesEnum.kNonShapeEditCmdType, AddInClientID, "DescriptionText_인장코일", "ToolTipText_인장코일",
+                    PictureDispConverter.Convert(Resources.icon_sp_01.ToBitmap()),
+                    PictureDispConverter.Convert(Resources.icon_sp_01.ToBitmap()));
+            compressionCoilWindowButtonDefinition =
+                m_inventorApplication.CommandManager.ControlDefinitions.AddButtonDefinition("압축코일", "압축코일",
+                    CommandTypesEnum.kNonShapeEditCmdType, AddInClientID, "DescriptionText_압축코일", "ToolTipText_압축코일",
+                    PictureDispConverter.Convert(Resources.icon_sp_02.ToBitmap()),
+                    PictureDispConverter.Convert(Resources.icon_sp_02.ToBitmap()));
 
             // STEP 4 :: 버튼 생성 및 이벤트 핸들러 등록
             // 표제란
@@ -138,6 +150,8 @@ namespace InventorAddin
             repinionWindowButtonDefinition.OnExecute += (context) => GearButtonClick(repinionWindowButtonDefinition.InternalName);
             wormGearWindowButtonDefinition.OnExecute += (context) => GearButtonClick(wormGearWindowButtonDefinition.InternalName);
             sprocketWindowButtonDefinition.OnExecute += (context) => GearButtonClick(sprocketWindowButtonDefinition.InternalName);
+            tensionCoilWindowButtonDefinition.OnExecute += (context) => GearButtonClick(tensionCoilWindowButtonDefinition.InternalName);
+            compressionCoilWindowButtonDefinition.OnExecute += (context) => GearButtonClick(compressionCoilWindowButtonDefinition.InternalName);
 
             // STEP 5 :: 버튼 추가
             titleColumnRibbonPanel.CommandControls.AddButton(titleColumnWindowButtonDefinition, true);
@@ -148,6 +162,8 @@ namespace InventorAddin
             gearSummaryRibbonPanel.CommandControls.AddButton(repinionWindowButtonDefinition, true);
             gearSummaryRibbonPanel.CommandControls.AddButton(wormGearWindowButtonDefinition, true);
             gearSummaryRibbonPanel.CommandControls.AddButton(sprocketWindowButtonDefinition, true);
+            gearSummaryRibbonPanel.CommandControls.AddButton(tensionCoilWindowButtonDefinition, true);
+            gearSummaryRibbonPanel.CommandControls.AddButton(compressionCoilWindowButtonDefinition, true);
         }
 
 
@@ -221,6 +237,14 @@ namespace InventorAddin
                     factoryView = new SprocketViewFactory();
                     factoryViewModel = new SprocketViewModelFactory();
                     break;
+                case GearType.TensionCoil:
+                    factoryView = new TensionCoilViewFactory();
+                    factoryViewModel = new TensionCoilViewModelFactory();
+                    break;
+                case GearType.CompressionCoil:
+                    factoryView = new CompressionCoilViewFactory();
+                    factoryViewModel = new CompressionCoilViewModelFactory();
+                    break;
                 default:
                     throw new ArgumentException($"Unknown gear type : {gearType}");
             }
@@ -258,6 +282,10 @@ namespace InventorAddin
                     return GearType.WormGear;
                 case "스프로킷":
                     return GearType.Sprocket;
+                case "인장코일":
+                    return GearType.TensionCoil;
+                case "압축코일":
+                    return GearType.CompressionCoil;
                 default:
                     throw new ArgumentException($"Unknown gear type : {InternalName}");
             }

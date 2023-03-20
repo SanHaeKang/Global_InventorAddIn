@@ -9,6 +9,6 @@
     <Border BorderBrush="Black" BorderThickness="1">
         <TextBlock Text="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}}"
                    Style="{Binding Style}"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                   HorizontalAlignment="Center" TextAlignment="Center" VerticalAlignment="Center" />
     </Border>
 </UserControl>

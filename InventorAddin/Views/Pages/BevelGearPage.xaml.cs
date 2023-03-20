@@ -1,5 +1,7 @@
-﻿using System;
+﻿using InventorAddin.Core.Helpers;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,12 @@ namespace InvAddIn.Views.Pages
         public BevelGearPage()
         {
             InitializeComponent();
+        }
+
+        private void NumberTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            e.Handled = !ValidateHelper.IsDecimalNumber(textBox.Text, e.Text);
         }
     }
 }

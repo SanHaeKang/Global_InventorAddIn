@@ -15,6 +15,22 @@ namespace InvAddIn.Helpers.ViewFactorys
         public abstract GearSummaryView CreateView();
     }
 
+    public class CompressionCoilViewFactory : GearSummaryViewFactory
+    {
+        public override GearSummaryView CreateView()
+        {
+            return new CompressionCoilPage();
+        }
+    }
+
+    public class TensionCoilViewFactory : GearSummaryViewFactory
+    {
+        public override GearSummaryView CreateView()
+        {
+            return new TensionCoilPage();
+        }
+    }
+
     public class SpurGearViewFactory : GearSummaryViewFactory
     {
         public override GearSummaryView CreateView()

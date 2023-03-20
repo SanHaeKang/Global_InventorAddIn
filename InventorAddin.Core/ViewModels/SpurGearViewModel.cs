@@ -10,58 +10,6 @@ namespace InventorAddin.Core.ViewModels
         private Inventor.Application m_inventorApplication;
         private Inventor.InteractionEvents interactionEvents;
 
-        private bool _isCustomEnabled;
-
-        public bool IsCustomEnabled
-        {
-            get => _isCustomEnabled;
-            set
-            {
-                SetProperty(ref _isCustomEnabled, value);
-                if(_isCustomEnabled )
-                {
-                    EnableAllTextBox();
-                }
-            }
-        }
-        private bool _isModuleTextEnabled;
-
-        public bool IsModuleTextEnabled
-        {
-            get => _isModuleTextEnabled;
-            set => SetProperty(ref _isModuleTextEnabled, value);
-        }
-
-        private bool _isPCDTextEnabled;
-
-        public bool IsPCDTextEnabled
-        {
-            get => _isPCDTextEnabled;
-            set => SetProperty(ref _isPCDTextEnabled, value);
-        }
-        private bool _isNumOfTeethTextEnabled;
-
-        public bool IsNumOfTeethTextEnabled
-        {
-            get => _isNumOfTeethTextEnabled;
-            set => SetProperty(ref _isNumOfTeethTextEnabled, value);
-        }
-
-        private bool _isModuleEnabled;
-
-        public bool IsModuleEnabled
-        {
-            get => _isModuleEnabled;
-            set
-            {
-                SetProperty(ref _isModuleEnabled, value);
-                if (_isModuleEnabled)
-                {
-                    EnableAllTextBox();
-                    IsModuleTextEnabled = false;
-                }
-            }
-        }
         private bool _isWholeDepthEnabled;
 
         public bool IsWholeDepthEnabled
@@ -75,32 +23,9 @@ namespace InventorAddin.Core.ViewModels
         public bool IsPCDEnabled
         {
             get => _isPCDEnabled;
-            set
-            {
-                SetProperty(ref _isPCDEnabled, value);
-                if (_isPCDEnabled)
-                {
-                    EnableAllTextBox();
-                    IsPCDTextEnabled = false;
-                }
-            }
+            set => SetProperty(ref _isPCDEnabled, value);
         }
-        private bool _isNumOfTeethEnabled;
-
-        public bool IsNumOfTeethEnabled
-        {
-            get => _isNumOfTeethEnabled;
-            set
-            {
-                SetProperty(ref _isNumOfTeethEnabled, value);
-                if (_isNumOfTeethEnabled)
-                {
-                    EnableAllTextBox();
-                    IsNumOfTeethTextEnabled = false;
-                }
-            }
-        }
-
+        
         private double _module;
 
         public double Module
@@ -110,18 +35,14 @@ namespace InventorAddin.Core.ViewModels
             {
                 SetProperty(ref _module, value);
 
-                if (IsWholeDepthEnabled)
+                if (!IsWholeDepthEnabled)
                 {
-                    WholeDepth = _module * 2.25;
+                    CalcWholeDepth();
                 }
 
-                if (IsPCDEnabled)
+                if (!IsPCDEnabled)
                 {
-                    PCD = _module * NumOfTeeth;
-                }
-                else if (IsNumOfTeethEnabled)
-                {
-                    NumOfTeeth = (int)(PCD / _module);
+                    CalcPCD();
                 }
             }
             
@@ -140,19 +61,8 @@ namespace InventorAddin.Core.ViewModels
         public double PCD
         {
             get => _pcd;
-            set
-            {
-                SetProperty(ref _pcd, value);
-
-                if (IsModuleEnabled)
-                {
-                    Module = _pcd / NumOfTeeth;
-                }
-                else if (IsNumOfTeethEnabled)
-                {
-                    NumOfTeeth = (int)(_pcd / Module);
-                }
-            }
+            set => SetProperty(ref _pcd, value);
+            
             
         }
 
@@ -165,13 +75,9 @@ namespace InventorAddin.Core.ViewModels
             {
                 SetProperty(ref _numOfTeeth, value);
 
-                if (IsModuleEnabled)
+                if (!IsPCDEnabled)
                 {
-                    Module = PCD / _numOfTeeth;
-                }
-                else if (IsPCDEnabled)
-                {
-                    PCD = Module * _numOfTeeth;
+                    CalcPCD();
                 }
             }
             
@@ -184,21 +90,24 @@ namespace InventorAddin.Core.ViewModels
             set => SetProperty(ref _unit, value);
         }
 
-        void EnableAllTextBox()
-        {
-            IsNumOfTeethTextEnabled = true;
-            IsPCDTextEnabled = true;
-            IsModuleTextEnabled = true;
-        }
-
         public SpurGearViewModel(Inventor.Application _m_inventorApplication)
         {
             m_inventorApplication = _m_inventorApplication;
 
             Unit = UnitHelper.UnitToString(m_inventorApplication.ActiveDocument.UnitsOfMeasure.LengthUnits);
 
+            IsPCDEnabled = true;
             IsWholeDepthEnabled = true;
-            IsCustomEnabled = true;
+        }
+
+        private void CalcPCD()
+        {
+            PCD = Module * NumOfTeeth;
+        }
+
+        private void CalcWholeDepth()
+        {
+            WholeDepth = Module * 2.25;
         }
 
         public override void SetSummary()

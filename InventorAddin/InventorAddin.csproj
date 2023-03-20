@@ -109,6 +109,7 @@
       <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -125,6 +126,7 @@
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +135,18 @@
     </Compile>
     <Compile Include="Controls\BorderTextBlock.xaml.cs">
       <DependentUpon>BorderTextBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BorderTextBox.xaml.cs">
+      <DependentUpon>BorderTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EABorderTextBox.xaml.cs">
+      <DependentUpon>EABorderTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PyUnitBorderTextBox.xaml.cs">
+      <DependentUpon>PyUnitBorderTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UnitBorderTextBox.xaml.cs">
+      <DependentUpon>UnitBorderTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\PictureDispConverter.cs">
       <SubType>Component</SubType>
@@ -156,6 +170,12 @@
     <Compile Include="Views\GearSummaryView.cs" />
     <Compile Include="Views\GearSummaryWindow.xaml.cs">
       <DependentUpon>GearSummaryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\CompressionCoilPage.xaml.cs">
+      <DependentUpon>CompressionCoilPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\TensionCoilPage.xaml.cs">
+      <DependentUpon>TensionCoilPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\TimingPage.xaml.cs">
       <DependentUpon>TimingPage.xaml</DependentUpon>
@@ -340,6 +360,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\BorderTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\EABorderTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PyUnitBorderTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UnitBorderTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\GearSummaryResourceDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -349,6 +385,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GearSummaryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\CompressionCoilPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\TensionCoilPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

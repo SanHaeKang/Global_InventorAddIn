@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="InvAddIn.Controls.UnitBorderTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InvAddIn.Controls"
+             xmlns:views="clr-namespace:InvAddIn.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Themes/GearSummaryResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border BorderBrush="Black" BorderThickness="1">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <TextBox 
+                Grid.Column="0" 
+                DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                Text="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                Style="{Binding Style, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                IsEnabled="{Binding IsEnabled, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                PreviewTextInput="NumberTextBox_PreviewTextInput"/>
+            <TextBlock
+                DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                Grid.Column="1" Text="{Binding Unit, RelativeSource={RelativeSource AncestorType=UserControl}}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource BoldAndBigTextBlock}"/>
+        </Grid>
+    </Border>
+</UserControl>

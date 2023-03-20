@@ -11,7 +11,20 @@ namespace InventorAddin.Core.Helpers.ViewModelFactory
     {
         public abstract GearSummaryViewModel CreateViewModel(Inventor.Application _m_inventorApplication);
     }
-
+    public class CompressionCoilViewModelFactory : GearSummaryViewModelFactory
+    {
+        public override GearSummaryViewModel CreateViewModel(Inventor.Application _m_inventorApplication)
+        {
+            return new CompressionCoilViewModel(_m_inventorApplication);
+        }
+    }
+    public class TensionCoilViewModelFactory : GearSummaryViewModelFactory
+    {
+        public override GearSummaryViewModel CreateViewModel(Inventor.Application _m_inventorApplication)
+        {
+            return new TensionCoilViewModel(_m_inventorApplication);
+        }
+    }
     public class SpurGearViewModelFactory : GearSummaryViewModelFactory
     {
         public override GearSummaryViewModel CreateViewModel(Inventor.Application _m_inventorApplication)
@@ -76,6 +89,8 @@ namespace InventorAddin.Core.Helpers.ViewModelFactory
         BevelGear,
         Repinion,
         WormGear,
-        Sprocket
+        Sprocket,
+        TensionCoil,
+        CompressionCoil
     }
 }

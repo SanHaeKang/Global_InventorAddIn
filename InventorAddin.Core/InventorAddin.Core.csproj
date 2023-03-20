@@ -86,10 +86,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\BooleanToInverseBooleanConverter.cs" />
+    <Compile Include="Converters\DegreeToRadianConverter.cs" />
     <Compile Include="Converters\ObjectToStringConverters.cs" />
     <Compile Include="Converters\StringToObjectConverter.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
     <Compile Include="Helpers\UnitHelper.cs" />
+    <Compile Include="Helpers\ValidateHelper.cs" />
     <Compile Include="Helpers\ViewModelFactorys\GearViewModelFactory.cs" />
     <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Revision.cs" />
@@ -100,11 +103,13 @@
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\AddRevWindowViewModel.cs" />
     <Compile Include="ViewModels\BevelGearViewModel.cs" />
+    <Compile Include="ViewModels\CompressionCoilViewModel.cs" />
     <Compile Include="ViewModels\GearSummaryViewModel.cs" />
     <Compile Include="ViewModels\HelicalViewModel.cs" />
     <Compile Include="ViewModels\RepinionViewModel.cs" />
     <Compile Include="ViewModels\SprocketViewModel.cs" />
     <Compile Include="ViewModels\SpurGearViewModel.cs" />
+    <Compile Include="ViewModels\TensionCoilViewModel.cs" />
     <Compile Include="ViewModels\TimingViewModel.cs" />
     <Compile Include="ViewModels\TitleColumnWindowViewModel.cs" />
     <Compile Include="ViewModels\WormGearViewModel.cs" />
