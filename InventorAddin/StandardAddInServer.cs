@@ -165,8 +165,7 @@ namespace InventorAddin
             gearSummaryRibbonPanel.CommandControls.AddButton(tensionCoilWindowButtonDefinition, true);
             gearSummaryRibbonPanel.CommandControls.AddButton(compressionCoilWindowButtonDefinition, true);
         }
-
-
+        
         public void Deactivate()
         {
             // This method is called by Inventor when the AddIn is unloaded CommunityToolkit.Mvvm, Version=8.1.0.0, Culture=neutral, PublicKeyToken=4aff67a105548ee2' 또는 여기에 종속되어 있는 파일이나 어셈블리 중 하나를 로드할 수 없습니다. 지정된 파일을 찾을 수 없습니다.'

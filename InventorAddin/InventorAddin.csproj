@@ -442,10 +442,7 @@
     <PostBuildEvent>WHERE MT.EXE
 IF ERRORLEVEL 1 call "$(DevEnvDir)..\..\VC\Auxiliary\Build\vcvarsall.bat" amd64
 			mt.exe -manifest "$(ProjectDir)InventorAddin.X.manifest" -outputresource:"$(TargetPath)";#2
-			XCopy "$(TargetPath)" "%25AppData%25\Autodesk\ApplicationPlugins\$(TargetName)\" /Y /R
-			XCopy "$(ProjectDir)Autodesk.InventorAddin.Inventor.addin" "%25AppData%25\Autodesk\ApplicationPlugins\$(TargetName)\" /Y /R
-			XCopy "$(TargetDir)*.dll" "%25AppData%25\Autodesk\ApplicationPlugins\$(TargetName)\" /Y /R
-			XCopy "$(TargetDir)*.pdb" "%25AppData%25\Autodesk\ApplicationPlugins\$(TargetName)\" /Y /R</PostBuildEvent>
+		</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\CommunityToolkit.Mvvm.8.1.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets" Condition="Exists('..\packages\CommunityToolkit.Mvvm.8.1.0\build\netstandard2.0\CommunityToolkit.Mvvm.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
